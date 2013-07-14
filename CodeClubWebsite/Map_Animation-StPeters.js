@@ -9,8 +9,6 @@ $('.map').first().append("<div class='map-canvas'></div>")
 
 //END OF CODE FROM SITE
 
-map.map.fire('dblclick')  
-
 var stPeters = new L.LatLng(51.4920535, -0.2407718)
 var count = 18;
 var zoom = 1;
