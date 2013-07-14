@@ -10,16 +10,15 @@ $('.map').first().append("<div class='map-canvas'></div>")
 //END OF CODE FROM SITE
 
 var stPeters = new L.LatLng(51.4920535, -0.2407718)
-var count = 18;
+var max = 18;
 var zoom = 1;
 var delay = 1500;
 var extraMessage = '<h3>ST PETERS COFE PRIMARY SCHOOL (Code Club ROOM)</h3><p>London</p>';
 
 var zoomIn = function()
-   {
-      console.log("count: " + count +  " zoom: " + zoom);
+   {      
       map.map.setView(stPeters, zoom++)
-      if (count-- > 0)
+      if (zoom < max)
         setTimeout(zoomIn, delay)
       else
         showExtraMessage();
@@ -32,6 +31,14 @@ var showExtraMessage = function()
     .addTo(map.map)
     .bindPopup(extraMessage)
     .openPopup();
+   setTimeout(zoomOut, delay*3) 
  }
 
+var zoomOut = function()
+   {      
+      map.map.setView(stPeters, zoom--)
+      if (zoom > 1)
+        setTimeout(zoomOut, delay)
+
+   };
 zoomIn()
