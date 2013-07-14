@@ -12,7 +12,7 @@ $('.map').first().append("<div class='map-canvas'></div>")
 var stPeters = new L.LatLng(51.4920535, -0.2407718)
 var count = 18;
 var zoom = 1;
-var delay = 100;
+var delay = 1500;
 var extraMessage = '<h3>ST PETERS COFE PRIMARY SCHOOL (Code Club ROOM)</h3><p>London</p>';
 
 var zoomIn = function()
