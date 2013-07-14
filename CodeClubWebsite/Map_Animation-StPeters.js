@@ -13,14 +13,25 @@ var stPeters = new L.LatLng(51.4920535, -0.2407718)
 var count = 18;
 var zoom = 1;
 var delay = 1000;
+var extraMessage = '<h3>ST PETERS COFE PRIMARY SCHOOL (Code Club ROOM)</h3><p>London</p>';
 
-var animate = function()
+var zoomIn = function()
    {
       console.log("count: " + count +  " zoom: " + zoom);
       map.map.setView(stPeters, zoom++)
       if (count-- > 0)
-      setTimeout(animate, delay)
+        setTimeout(zoomIn, delay)
+      else
+        showExtraMessage();
 
    };
+   
+var showExtraMessage = function()
+ {
+   L.marker([stPeters.lat , stPeters.lng + 0.0009])
+    .addTo(map.map)
+    .bindPopup()
+    .openPopup();
+ }
 
-animate()
+zoomIn()
